@@ -15,7 +15,7 @@ namespace API.Controllers
         {
             _context = context;
         }
-        
+         
         [HttpGet]
         public async Task<ActionResult<IList<Activity>>>GetActivites(){
            return await _context.Activities.ToListAsync();

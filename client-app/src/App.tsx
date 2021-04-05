@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import { ducks } from './demo';
 import axios from 'axios';
+import {Header} from 'semantic-ui-react'; 
+import { SemicolonPreference } from 'typescript';
 
 function App() {
   const [activities,setactivities]= useState([])
@@ -14,7 +16,7 @@ setactivities(response.data)
   },[])
   return (
     <div className="App">
-      <header className="App-header">
+      <Header as='h2' icon='users' content='Reactivites'/>
        
        <ul>
          {activities.map((activity:any) => (
@@ -23,7 +25,7 @@ setactivities(response.data)
            </li>
          ))}
        </ul>
-      </header>
+      
     </div>
   );
 }
