@@ -19,7 +19,7 @@ setactivities(response.data)
   },[])
 
   function handleSelectActivity(id:string){
-    setSelectedActivity(activities.find(x=>x.id==id))
+    setSelectedActivity(activities.find(x=>x.id===id))
   }
   function handleCencelSelectActivity(){
     setSelectedActivity(undefined)

@@ -1,12 +1,14 @@
 import React from 'react';
 import { Button, Card, Image } from 'semantic-ui-react';
 import { Activity } from '../../../app/models/activity';
+
 interface Props{
     activity:Activity;
     cencelSelectActivity:()=>void;  
     openFrom:(id:string)=>void;
 
 }
+
  export default function({activity ,cencelSelectActivity,openFrom}:Props){
     return(
         <Card fluid>
@@ -27,5 +29,4 @@ interface Props{
      </Button.Group>
     </Card.Content>
   </Card>
-    )
-}
+    )}
