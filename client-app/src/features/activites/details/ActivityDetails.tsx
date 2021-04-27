@@ -4,12 +4,12 @@ import { Activity } from '../../../app/models/activity';
 
 interface Props{
     activity:Activity;
-    cencelSelectActivity:()=>void;  
+    cancelSelectActivity:()=>void;  
     openFrom:(id:string)=>void;
 
 }
 
- export default function({activity ,cencelSelectActivity,openFrom}:Props){
+ export default function ActivityDetails({activity ,cancelSelectActivity,openFrom}:Props){
     return(
         <Card fluid>
     <Image src={`/assets/categoryImages/${activity.category}.jpg`}/>
@@ -25,8 +25,9 @@ interface Props{
     <Card.Content extra>
      <Button.Group widths='2'>
          <Button basic color='blue'  content='Edit' onClick={()=>openFrom(activity.id)}/>
-         <Button onClick={()=>cencelSelectActivity()} basic color='blue' content='Cencel'/>
+         <Button onClick={()=>cancelSelectActivity()} basic color='blue' content='Cancel'/>
      </Button.Group>
     </Card.Content>
   </Card>
-    )}
+    )
+  }

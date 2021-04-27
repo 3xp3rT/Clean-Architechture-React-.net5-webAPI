@@ -11,27 +11,30 @@ interface Props{
     activites: Activity[];
     selectedActivity:Activity | undefined;
     selectActivity:(id:string)=>void;
-    cencelSelectActivity:()=>void;
+    cancelSelectActivity:()=>void;
     editMode:boolean;
     openFrom:(id:string)=>void;
     closeForm:()=>void;
     createOrEdit:(activity:Activity)=>void;
+    deleteActivity:(id:string)=>void;
+    submitting:boolean;
 }
 export default function ActivityDeshboard({activites,selectActivity,
-    selectedActivity,cencelSelectActivity,editMode,openFrom,closeForm,createOrEdit}:Props){
+    selectedActivity,cancelSelectActivity,editMode,openFrom,closeForm,createOrEdit,deleteActivity,submitting}:Props){
     return(
         <Grid>
             <Grid.Column width='10'>
-            <ActivityList activites={activites} selectActivity={selectActivity}/>
+            <ActivityList activites={activites} submitting={submitting} selectActivity={selectActivity}
+            deleteActivity={deleteActivity}/>
             </Grid.Column>
             <Grid.Column width='6'>
                 {selectedActivity && !editMode&&
-            <ActivityDetails activity={selectedActivity} cencelSelectActivity={cencelSelectActivity}
+            <ActivityDetails activity={selectedActivity} cancelSelectActivity={cancelSelectActivity}
             openFrom={openFrom}
             />}{
                 editMode 
                 && 
-            <ActivityForm closeForm={closeForm} activity={selectedActivity}  createOrEdit={createOrEdit} />
+            <ActivityForm closeForm={closeForm} activity={selectedActivity} submitting={submitting} createOrEdit={createOrEdit} />
 
             }
             </Grid.Column>
